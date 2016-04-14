@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sauca.filgps.Main">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            android:background="?attr/colorPrimary"
+            android:orientation="horizontal"
+            android:id="@+id/relativeLayout">
+
+        <ImageButton
+            android:layout_width="60sp"
+            android:layout_height="match_parent"
+            android:id="@+id/IB_Back"
+            android:src="@drawable/ico_gps"
+            android:background="#00ffffff"
+            android:layout_alignParentLeft="true"
+            android:scaleType="fitXY" />
+
+            <ImageButton
+                android:layout_width="60sp"
+                android:layout_height="match_parent"
+                android:id="@+id/IB_Map"
+                android:background="#00ffffff"
+                android:scaleType="fitXY"
+                android:src="@android:drawable/ic_menu_mapmode"
+                android:layout_alignParentRight="false"
+                android:layout_centerHorizontal="true" />
+
+            <ImageButton
+            android:layout_width="60sp"
+            android:layout_height="match_parent"
+            android:id="@+id/IB_Quit"
+            android:background="#00ffffff"
+            android:scaleType="fitXY"
+            android:src="@android:drawable/ic_delete"
+            android:layout_alignParentRight="true" />
+
+
+        </RelativeLayout>
+
+
+</RelativeLayout>
