@@ -13,6 +13,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -27,6 +28,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class Maps extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener{
 
     private GoogleMap mMap;
+    private ImageButton ibBack;
+
 
     public static final String TAG = Maps.class.getSimpleName();
 
@@ -39,6 +42,10 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback, View.O
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        ibBack=(ImageButton)findViewById(R.id.IB_Back);
+
+        ibBack.setOnClickListener(this);
     }
 
 
@@ -68,30 +75,30 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback, View.O
 
         mMap.setMyLocationEnabled(true);
 
-
         // Get LocationManager object from System Service LOCATION_SERVICE
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         // Create a criteria object to retrieve provider
         Criteria criteria = new Criteria();
+        criteria.setAccuracy(Criteria.ACCURACY_FINE);
 
         // Get the name of the best provider
         String provider = locationManager.getBestProvider(criteria, true);
 
-        // Get Current Location
+        // Get Current Location FARO SAC Lat-37.0297f Lon- -7.9336
         Location myLocation = locationManager.getLastKnownLocation(provider);
 
         // Get latitude of the current location
-        double latitude = myLocation.getLatitude();
+        double latitude = 37.0297f;//myLocation.getLatitude();
 
         // Get longitude of the current location
-        double longitude = myLocation.getLongitude();
+        double longitude = -7.9336;//myLocation.getLongitude();
 
         // Add a marker in Sydney and move the camera
         LatLng myloc = new LatLng(latitude,longitude);
 
         mMap.addMarker(new MarkerOptions().position(myloc).title("My Location"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom (myloc,12.0f));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom (myloc,googleMap.getMaxZoomLevel()));
     }
 
     @Override
