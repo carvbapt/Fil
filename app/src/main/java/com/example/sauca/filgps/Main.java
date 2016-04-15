@@ -64,18 +64,17 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
             InputStream is=am.open("Gps.xls");
             Workbook wb=Workbook.getWorkbook(is);
             Sheet s=wb.getSheet(0);
-            int row=s.getRows()-1;
+            int row=s.getRows();
             int col=s.getColumns();
 
 //            Toast.makeText(this,"TESTE XLS",Toast.LENGTH_LONG).show();
 
-            String str="Linhas - "+row+" Colunas - "+col+"\n";
+            String str="Linhas - "+(row-1)+" Colunas - "+col+"\n";
 
-            for(int r=0;r<row ; r++){
+            for(int r=1;r<row ; r++){
                 for (int c=0;c<col;c++){
                     Cell v=s.getCell(c,r);
-
-                    if(v.getContents()==null)
+                    if(v.getContents()=="")
                         str=str+" "+"--c--";
                     else
                         str=str+" "+v.getContents();
