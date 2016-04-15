@@ -66,7 +66,9 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
             Sheet s=wb.getSheet(0);
             int row=s.getRows()-1;
             int col=s.getColumns();
+
 //            Toast.makeText(this,"TESTE XLS",Toast.LENGTH_LONG).show();
+
             String str="Linhas - "+row+" Colunas - "+col+"\n";
 
             for(int r=0;r<row ; r++){
