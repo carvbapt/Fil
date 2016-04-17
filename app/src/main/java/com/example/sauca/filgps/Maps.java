@@ -25,10 +25,14 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+
 public class Maps extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener{
 
     private GoogleMap mMap;
     private ImageButton ibBack;
+
+    private Intent intt;
 
 
     public static final String TAG = Maps.class.getSimpleName();
@@ -85,20 +89,27 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback, View.O
         String provider = locationManager.getBestProvider(criteria, true);
 
         // Get Current Location FARO SAC Lat-37.0297f Lon- -7.9336
-        Location myLocation = locationManager.getLastKnownLocation(provider);
+        Location myLocation =locationManager.getLastKnownLocation(provider);
+
+        ArrayList<LatLng> locations=(ArrayList<LatLng>)getIntent().getSerializableExtra("Mapa");
+
+        for(int loc=0;loc<locations.size();loc++){
+            mMap.addMarker(new MarkerOptions().position(locations.get(loc)).title("My Location"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locations.get(loc),googleMap.getMaxZoomLevel()));
+        }
 
 
         // Get latitude of the current location
-        double latitude = 37.0297f;//myLocation.getLatitude();
-
-        // Get longitude of the current location
-        double longitude = -7.9336;//myLocation.getLongitude();
-
-        // Add a marker in Sydney and move the camera
-        LatLng myloc = new LatLng(latitude,longitude);
-
-        mMap.addMarker(new MarkerOptions().position(myloc).title("My Location"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom (myloc,googleMap.getMaxZoomLevel()));
+//        double latitude = 37.0297f;//myLocation.getLatitude();
+//
+//        // Get longitude of the current location
+//        double longitude = -7.9336;//myLocation.getLongitude();
+//
+//        // Add a marker in Sydney and move the camera
+//        LatLng myloc = new LatLng(latitude,longitude);
+//
+//        mMap.addMarker(new MarkerOptions().position(myloc).title("My Location"));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom (myloc,googleMap.getMaxZoomLevel()));
     }
 
     @Override

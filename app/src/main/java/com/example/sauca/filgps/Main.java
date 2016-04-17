@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.database.Cursor;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Vector;
 
 import jxl.Cell;
 import jxl.Sheet;
@@ -30,7 +35,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
     AdapterLV adapterLV;
 
     private AlertDialog alerta;
-    public Long[][] coord;
+    public ArrayList<LatLng> locations;
 
 
     @Override
@@ -64,7 +69,9 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
             finish();
             startActivity(new Intent(this, Splash.class));
         }else if(v==findViewById(R.id.IB_Map)) {
-            startActivity(new Intent(this, Maps.class));
+            intt=new Intent(this, Maps.class);
+            intt.putExtra("Mapa", locations);
+            startActivity(intt);
         }else if(v==findViewById(R.id.IB_Quit)){
             moveTaskToBack(true);
             finish();
@@ -89,7 +96,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
             final Sheet s=wb.getSheet(0);
             int row=s.getRows();
             int col=s.getColumns();
-            coord= new Long[2][row];
+            locations = new ArrayList<LatLng>();
 
 //            Toast.makeText(this,"TESTE XLS",Toast.LENGTH_LONG).show();
 
@@ -105,6 +112,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener{
                   dtlv.setdCliente(s.getCell(0,r).getContents());
                   dtlv.setdLatitude(s.getCell(4,r).getContents());
                   dtlv.setdLongitude(s.getCell(5,r).getContents());
+                  locations.add(new LatLng(Double.valueOf(dtlv.getdLatitude()),Double.valueOf(dtlv.getdLongitude())));
                   adapterLV.add(dtlv);
             }
 
