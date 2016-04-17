@@ -44,7 +44,6 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback, View.O
         mapFragment.getMapAsync(this);
 
         ibBack=(ImageButton)findViewById(R.id.IB_Back);
-
         ibBack.setOnClickListener(this);
     }
 
@@ -88,6 +87,7 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback, View.O
         // Get Current Location FARO SAC Lat-37.0297f Lon- -7.9336
         Location myLocation = locationManager.getLastKnownLocation(provider);
 
+
         // Get latitude of the current location
         double latitude = 37.0297f;//myLocation.getLatitude();
 
@@ -104,7 +104,6 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback, View.O
     @Override
     public void onClick(View v) {
         if(v==findViewById(R.id.IB_Back)) {
-            finish();
             startActivity(new Intent(this,Main.class));
         }
     }

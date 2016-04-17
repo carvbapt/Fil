@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sauca.filgps.Cliente">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:background="?attr/colorPrimary"
+        android:orientation="horizontal"
+        android:id="@+id/RL_C">
+
+        <ImageButton
+            android:layout_width="60sp"
+            android:layout_height="match_parent"
+            android:id="@+id/IB_Back"
+            android:src="@drawable/ico_gps"
+            android:background="#00ffffff"
+            android:layout_alignParentLeft="true"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Indice"
+            android:id="@+id/TV_Cli"
+            android:textSize="40sp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/RL_C"
+        android:layout_marginLeft="5sp"
+        android:layout_marginRight="5sp"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/cliente"
+            android:id="@+id/TV_Clie"
+            android:layout_alignEnd="@+id/TV_Morada"
+            android:layout_marginTop="5sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ET_Cliente"
+            android:layout_toRightOf="@+id/TV_Clie"
+            android:layout_toEndOf="@+id/TV_Clie" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/nif"
+            android:id="@+id/TV_Nif"
+            android:layout_marginTop="15sp"
+            android:layout_alignEnd="@+id/TV_Morada"
+            android:layout_below="@+id/TV_Clie" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ET_Nif"
+            android:layout_below="@+id/ET_Cliente"
+            android:layout_toRightOf="@+id/TV_Nif"
+            android:inputType="number"
+            android:maxLength="9" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/contato"
+            android:id="@+id/TV_Contato"
+            android:layout_marginTop="15sp"
+            android:layout_below="@+id/TV_Nif"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ET_Contato"
+            android:layout_below="@+id/ET_Nif"
+            android:layout_toRightOf="@+id/TV_Contato"
+            android:inputType="number"
+            android:maxLength="9" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/morada"
+            android:id="@+id/TV_Morada"
+            android:layout_below="@+id/TV_Contato"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="15sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ET_Morada"
+            android:layout_below="@+id/ET_Contato"
+            android:layout_toEndOf="@+id/TV_Morada"
+            android:inputType="number"
+            android:maxLength="9"
+            android:lines="2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/latitude"
+            android:id="@+id/TV_Latitude"
+            android:inputType="numberDecimal"
+            android:layout_alignTop="@+id/ET_Latitude"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ET_Latitude"
+            android:layout_below="@+id/ET_Morada"
+            android:layout_toRightOf="@+id/TV_Latitude"
+            android:inputType="number"
+            android:maxLength="9" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/longitude"
+            android:id="@+id/TV_Longitude"
+            android:inputType="numberDecimal"
+            android:layout_alignTop="@+id/ET_Longitude"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ET_Longitude"
+            android:layout_below="@+id/ET_Latitude"
+            android:layout_toRightOf="@+id/TV_Longitude"
+            android:inputType="number"
+            android:maxLength="9" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
