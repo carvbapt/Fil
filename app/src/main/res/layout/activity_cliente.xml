@@ -19,6 +19,7 @@
             android:src="@drawable/ico_gps"
             android:background="#00ffffff"
             android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5sp"
             android:scaleType="fitXY" />
 
         <TextView
@@ -40,7 +41,8 @@
         android:layout_below="@+id/RL_C"
         android:layout_marginLeft="5sp"
         android:layout_marginRight="5sp"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:id="@+id/relativeLayout2">
 
         <TextView
             android:layout_width="wrap_content"
@@ -157,6 +159,39 @@
             android:layout_toRightOf="@+id/TV_Longitude"
             android:inputType="number"
             android:maxLength="9" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60sp"
+        android:background="?attr/colorPrimary"
+        android:orientation="horizontal"
+        android:id="@+id/RL_Cbottom"
+        android:layout_alignParentBottom="true">
+
+
+        <ImageButton
+            android:layout_width="60sp"
+            android:layout_height="match_parent"
+            android:id="@+id/IB_FClear"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:background="#00ffffff"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5sp"
+            android:scaleType="fitXY" />
+
+        <ImageButton
+            android:layout_width="60sp"
+            android:layout_height="match_parent"
+            android:id="@+id/IB_FSave"
+            android:src="@android:drawable/ic_menu_save"
+            android:background="#00ffffff"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5sp"
+            android:scaleType="fitXY" />
+
+
 
     </RelativeLayout>
 
